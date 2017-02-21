@@ -45,11 +45,8 @@ import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime"
     var multiselect = require('vue-multiselect').default;
  
     @Component({
-        components: { multiselect: multiselect }  //multiselect:Multiselect 
-        // watch:{ '$route.path': function(newVal?:any, oldVal?:any ){ // this.$route.path:string , newVal?:any, oldVal?:any 
-        //      if(this.$route.path!=undefined)
-        //      console.log('Changed current path to: ' + this.$route.path);
-        //  } } 
+        components: { multiselect: multiselect }  
+  
     })
     export default class epost extends Vue {
         name = 'editpost'

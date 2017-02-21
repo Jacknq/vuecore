@@ -58,9 +58,6 @@ create(storeData)
     })
   }
   ).done();
-//var { getters, commit } = getHelper(store2)
-//cmpdStore.db = new cl.SgnRCloud(state.servurl, state.token);
-//END COMpound store
 
 //how to subscribe
 // store.subscribe(s => {

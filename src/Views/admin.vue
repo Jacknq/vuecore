@@ -43,33 +43,29 @@
     import { Component, create, getHelper, Vue, Store, Prop, Watch, Lifecycle } from '../ext'
 import editpost from '../components/admin/editpost'
 import home from '../Views/home.vue'
-    var multiselect = require('vue-multiselect').default;
- 
-    @Component({
-        components: { multiselect: multiselect, editpost, home }  
-  
-    })
-    export default class admin extends Vue {
-        name = 'admin'
-    
-        public somemethod(newSelected) {
-            console.log("enter your code")
-          
-        }
-          @Lifecycle mounted() { 
-  
-       //here you show the alert
-       this.$on("onsavepost",()=>{ 
-         console.log("catched the event1");
-         this.$children.forEach((value, index,array)=>{ value.$emit("onsavepost"); } );//.$forceUpdate();
-       });
-          }
-         
-           
-    
-               
+var multiselect = require('vue-multiselect').default;
+
+@Component({
+    components: { multiselect: multiselect, editpost, home }
+
+})
+export default class admin extends Vue {
+    name = 'admin'
+
+    public somemethod(newSelected) {
+        console.log("enter your code")
 
     }
+    @Lifecycle mounted() {
+
+        //here you show the alert
+        this.$on("onsavepost", () => {
+            console.log("catched the event1");
+            this.$children.forEach((value, index, array) => { value.$emit("onsavepost"); });//.$forceUpdate();
+        });
+    }
+
+}
 </script>
 <style lang="less" >
 /*
