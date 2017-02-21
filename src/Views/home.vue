@@ -76,7 +76,7 @@ export default class extends Vue {
   
        //here you show the alert
        this.$on("onsavepost",()=>{ 
-         console.log("catched the event2");
+        // console.log("catched the event2");
          this.getData();
          });
            
