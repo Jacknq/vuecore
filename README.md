@@ -28,5 +28,5 @@ npm run deploy
 npm run build
 
 ```
-![screenshot](screen1.png)
+![screenshot](/src/assets/screen1.png)
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
