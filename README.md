@@ -1,6 +1,8 @@
 # Vuecore
 
-All in Vue2+ js Typecsript template bootstrap 4, hot reload, Vuex, .net core backend signalr webapi litedb.. Lets rock!
+All in Vue2+ js Typecsript template bootstrap 4, hot reload, Vuex, .net core backend signalr webapi litedb..
+T4 template ins source hubsfloww.tt in visual studio community, on click genarate proxy out of csharp model out of the box!
+ Lets rock!
 
 ## Visual Studio integration
 It is highly recommended that the following extensions are installed
