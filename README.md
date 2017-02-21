@@ -1,6 +1,6 @@
 # Vuecore
 
-All in Vue js Typecsript template bootstrap 4, hot reload, Vuex, .net core backend signalr webapi litedb.. Lets rock!
+All in Vue2+ js Typecsript template bootstrap 4, hot reload, Vuex, .net core backend signalr webapi litedb.. Lets rock!
 
 ## Visual Studio integration
 It is highly recommended that the following extensions are installed
@@ -29,4 +29,5 @@ npm run build
 
 ```
 ![screenshot](/src/assets/screen1.png)
+
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
