@@ -59,8 +59,7 @@ import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime"
         options = ['polo', 'trans', 'golf','jaguar', 'a6', 'tiguan', 'kadjar','ateca']; 
 
         post:d.Post = new d.Post();
-        cats:d.Category[] = null
-        tags:d.Tag[] = null
+       
         saved:boolean =false;
   
     addTag(tag:string)
@@ -107,16 +106,7 @@ import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime"
         {
          this.initNewData();
         }
-       if(this.db.connected){
-              this.db.bHub.getCategories("", "", 1, 1000).then((value:d.Category[])=>{
-              this.cats = value;
 
-              }); 
-            // this.tags = 
-            this.db.bHub.getTags("", "", 1, 1000).then((value:d.Tag[])=>{
-              this.tags = value;
-            });
-            } 
       }
         
 
