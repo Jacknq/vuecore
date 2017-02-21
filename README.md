@@ -2,6 +2,7 @@
 
 All in Vue2+ js Typecsript template bootstrap 4, hot reload, Vuex, .net core backend signalr webapi litedb..
 T4 template in source hubsfloww.tt in visual studio community, on click genarate proxy out of csharp model out of the box!
+runs on ubuntu 16.04!
  Lets rock!
 
 ## Visual Studio integration
@@ -29,6 +30,8 @@ npm run deploy
 # build the frontend to dist folder
 npm run build
 
+# build the backend to bin
+dotnet build 
 ```
 ![screenshot](/src/assets/screen1.png)
 
