@@ -3,7 +3,7 @@
 <# /* Update this line to match your version of SignalR */ #>
 <#@ assembly name="$(SolutionDir)\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll" #>
 <# /* Load the current project's DLL to make sure the DefaultHubManager can find things */ #>
-<#@ assembly name="$(ProjectDir)\bin\Debug\netcoreapp1.1\bvue.dll" #>
+<#@ assembly name="$(ProjectDir)\bin\Debug\netcoreapp1.1\vuecore.dll" #>
 <#@ assembly name="System.Core" #>
 <#@ assembly name="System.Web" #>
 <#@ assembly name="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>

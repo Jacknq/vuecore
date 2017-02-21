@@ -131,127 +131,8 @@ client : any;
 		
 }
 
-    /** 
-      * Sends a "getCategories" message to the bHub hub.
-      * Contract Documentation: ---
-      * @param search {string} 
-      * @param orderby {string} 
-      * @param page {number} 
-      * @param pagesize {number} 
-      * @return {JQueryPromise of Category[]}
-      */
-    getCategories(search : string, orderby : string, page : number, pagesize : number) : Promise<Category[]>
-{
+ 
 
-	   return  this.proxy.invoke('getCategories'  , search, orderby, page, pagesize);
-		
-}
-
-    /** 
-      * Sends a "insertCategory" message to the bHub hub.
-      * Contract Documentation: ---
-      * @param p {Category} 
-      * @return {JQueryPromise of number}
-      */
-    insertCategory(p : Category) : Promise<number>
-{
-
-	   return  this.proxy.invoke('insertCategory'  , p);
-		
-}
-
-    /** 
-      * Sends a "updateCategory" message to the bHub hub.
-      * Contract Documentation: ---
-      * @param p {Category} 
-      * @return {JQueryPromise of boolean}
-      */
-    updateCategory(p : Category) : Promise<boolean>
-{
-
-	   return  this.proxy.invoke('updateCategory'  , p);
-		
-}
-
-    /** 
-      * Sends a "deleteCategory" message to the bHub hub.
-      * Contract Documentation: ---
-      * @param id {number} 
-      * @return {JQueryPromise of number}
-      */
-    deleteCategory(id : number) : Promise<number>
-{
-
-	   return  this.proxy.invoke('deleteCategory'  , id);
-		
-}
-
-    /** 
-      * Sends a "getTags" message to the bHub hub.
-      * Contract Documentation: ---
-      * @param search {string} 
-      * @param orderby {string} 
-      * @param page {number} 
-      * @param pagesize {number} 
-      * @return {JQueryPromise of Tag[]}
-      */
-    getTags(search : string, orderby : string, page : number, pagesize : number) : Promise<Tag[]>
-{
-
-	   return  this.proxy.invoke('getTags'  , search, orderby, page, pagesize);
-		
-}
-
-    /** 
-      * Sends a "insertTag" message to the bHub hub.
-      * Contract Documentation: ---
-      * @param p {Tag} 
-      * @return {JQueryPromise of number}
-      */
-    insertTag(p : Tag) : Promise<number>
-{
-
-	   return  this.proxy.invoke('insertTag'  , p);
-		
-}
-
-    /** 
-      * Sends a "updateTag" message to the bHub hub.
-      * Contract Documentation: ---
-      * @param p {Tag} 
-      * @return {JQueryPromise of boolean}
-      */
-    updateTag(p : Tag) : Promise<boolean>
-{
-
-	   return  this.proxy.invoke('updateTag'  , p);
-		
-}
-
-    /** 
-      * Sends a "deleteTag" message to the bHub hub.
-      * Contract Documentation: ---
-      * @param id {number} 
-      * @return {JQueryPromise of number}
-      */
-    deleteTag(id : number) : Promise<number>
-{
-
-	   return  this.proxy.invoke('deleteTag'  , id);
-		
-}
-
-    /** 
-      * Sends a "returnSome" message to the bHub hub.
-      * Contract Documentation: ---
-      * @return {JQueryPromise of string}
-      */
-    returnSome() : Promise<string>
-{
-
-	   return  this.proxy.invoke('returnSome' );
-		
-}
 }
 
 //#endregion bHub hub
@@ -283,57 +164,11 @@ export class BEntity {
 export class Post extends BEntity {
     Title : string;
     Content : string;
-    Blog : Blog;
-    Categories : Category[];
-    Tags : Tag[];
-    Comments : Comment[];
-    Published : boolean;
-    Rating : number;
-    Slug : string;
-    FileInfos : BFileInfo[];
+  
 }
 
 
-/**
-  * Data contract for bVue.code.Category
-  */
-export class Category extends BEntity {
-    Name : string;
-    Posts : Post[];
-}
 
-
-/**
-  * Data contract for bVue.code.Tag
-  */
-export class Tag extends Category {
-}
-
-
-/**
-  * Data contract for bVue.code.Blog
-  */
-export class Blog extends BEntity {
-    Name : string;
-    Posts : Post[];
-}
-
-
-/**
-  * Data contract for bVue.code.Comment
-  */
-export class Comment extends BEntity {
-    Author : string;
-    Text : string;
-    Post : Post;
-}
-
-
-/**
-  * Data contract for bVue.code.BFileInfo
-  */
-export class BFileInfo extends BEntity {
-}
 export default SgnRCloud;
 //#endregion data contracts
 
