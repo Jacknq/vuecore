@@ -1,0 +1,107 @@
+{
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.1.0",
+      "type": "platform"
+    },
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.1.0-preview1-final",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.1.0-preview1-final",
+    "Microsoft.AspNetCore.StaticFiles": "1.1.0-preview1-final",
+    "LiteDB": "3.0.1",
+    "Microsoft.AspNetCore.Owin": "1.1.0-*",
+    "Microsoft.AspNetCore.Mvc": "1.1.0-*",
+    "Microsoft.AspNetCore.WebSockets": "1.0.0-*",
+    "Microsoft.AspNetCore.Routing": "1.1.0-*",
+    "Microsoft.EntityFrameworkCore": "1.1.0-*",
+    "Microsoft.EntityFrameworkCore.InMemory": "1.1.0-*",
+    "Microsoft.EntityFrameworkCore.Relational": "1.1.0-*",
+    "Microsoft.AspNetCore.Diagnostics": "1.1.0-*",
+    "Microsoft.Extensions.Logging.Console": "1.1.0-*",
+    "Microsoft.Extensions.Configuration": "1.1.0",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.0-*",
+    "Microsoft.Extensions.Configuration.FileExtensions": "1.1.0-*",
+    "Microsoft.Extensions.Configuration.Json": "1.1.0-*",
+    "Microsoft.Extensions.Configuration.CommandLine": "1.1.0",
+    "Microsoft.Extensions.Logging": "1.1.0-*",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0-*",
+   
+    "Microsoft.AspNetCore.Authentication": "1.1.0-*",
+    "Microsoft.AspNetCore.DataProtection": "1.1.0-*",
+    "AspNet.Security.OpenIdConnect.Server": "1.0.0-beta7-final",
+    "AspNet.Security.OAuth.Validation": "1.0.0-alpha3-final",
+    "Microsoft.AspNetCore.Authentication.JwtBearer": "1.1.0",
+    "AspNet.Security.OAuth.Introspection": "1.0.0-alpha3-final",
+    "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0",
+    "Microsoft.AspNetCore.Hosting": "1.1.0",
+    "Microsoft.AspNetCore.Session": "1.1.0",
+    "SignalrTypescriptGenerator": "1.0.13",
+    "TypeScripter": "0.5.3",
+    "TextTemplating": "1.0.0-rc1-final",
+   
+    "Microsoft.AspNetCore.SignalR.Server": "0.2.0-preview2-22682"
+   
+  },
+  "commands": {
+    "t4": "TextTemplating --t4-template --d ./code/backend/repo/t4/hubsflow.tt",
+    "tt": "TextTemplating"
+  },
+  "runtimes": {
+    "win7-x64": {},
+    "ubuntu.16.04-x64": {}
+  },
+  "tools": {
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.1.0-preview4-final"
+
+  },
+  "frameworks": {
+    "netcoreapp1.1": {
+      "imports": [
+        "dotnet5.6",
+        "dnxcore50"
+      ]
+    }
+  },
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true,
+    "copyToOutput": "appsettings.json"
+  },
+  "runtimeOptions": {
+    "configProperties": {
+      "System.GC.Server": true
+    }
+  },
+  "publishOptions": {
+    "include": [
+      "Data",
+      "dist",
+      "appsettings.json"
+    ],
+    "exclude": [
+      "**/*.cs",
+      "**/*.tt",
+      "**/*.user",
+      "**/*xproj*",
+      "**/*sln*",
+      "./bin*",
+      "./src*",
+      "./code*",
+      "./static*",
+      "./build*",
+      "./obj*",
+      "./Readme.md*",
+      "./index.html*",
+      "./NugetConfig.config*",
+      "./properties*",
+      "**/*.pdb",
+      "**/*deps.json",
+      "node_modules"
+    ]
+  },
+  "scripts": {
+    "postpublish": [
+      "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%"
+    ]
+  }
+}
