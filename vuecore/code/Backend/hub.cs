@@ -9,20 +9,17 @@ namespace bVue.code
 {
     public class DbManager
     {
-        public static LiteRepo Instance { get; private set; }
-        static DbManager()
-        {
-            Instance = new LiteRepo();
-        }
+        public static LiteRepo Instance =  new LiteRepo(); //{ get; private set; }
+        // static DbManager()
+        // {
+        //     Instance = new LiteRepo();
+        // }
     }
     public class bHub : Hub
     {
         public  LiteRepo repo { get { return DbManager.Instance; } }
        
-        public bHub()
-        {
-        
-        }
+       
         public override Task OnConnected()
         {
             // Set connection id for just connected client only

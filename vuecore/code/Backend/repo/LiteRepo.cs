@@ -20,10 +20,12 @@ namespace bVue.code.Backend.repo
     }
     public class LiteRepo //: Hub
     {
-     
-        public LiteRepo()
-        {  var m = new mapdb();
-            _db = new LiteDatabase(Startup.config["dbpath"], m.maper);
+      static string dbpath = @"Data//data.db";
+      public LiteRepo()
+       {  
+           var m = new mapdb();
+           var path =Startup.config["dbpath"];
+            _db = new LiteDatabase(path!=null?path: dbpath, m.maper);
        
         }
 
