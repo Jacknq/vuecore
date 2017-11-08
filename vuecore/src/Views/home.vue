@@ -6,10 +6,10 @@
                   <div class="post-date">
                     <div class="row justify-content-between">
                       <div class="col-6">
-                        {{ new Date(post.DateCreated).toLocaleDateString('de') }} | <a href=""> Jack </a>
+                        {{ new Date(post.DateCreated).toLocaleDateString('de') }} | <a href="#"> Jack </a>
                       </div>
                       <div class="col-2">
-                        <span> <a href="">11 <i class="fa fa-comments-o" aria-hidden="true"></i></a > </span>
+                        <span> <a href="#">11 <i class="fa fa-comments-o" aria-hidden="true"></i></a > </span>
                       </div>
                     </div>
                  
