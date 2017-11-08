@@ -46,12 +46,12 @@
     
 </template>
 <script lang="ts">
-import  {Component, create, getHelper,Store, Prop, Watch,Lifecycle,p,d }  from '../ext1'
+import  {Component, Vue, Watch,d }  from '../ext1'
 import { RouterOptions, Location, RouteConfig, Route } from 'vue-router'
-import  {Vue }  from '../ext'
+//import  {Vue }  from '../ext'
  var multiselect = require('vue-multiselect').default;
  import  store  from '../System/store'
- var { getters, commit } = getHelper(store)
+
 
  import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime"
 
@@ -69,10 +69,7 @@ export default class extends Vue {
    pagesize = 3
    pagecount = 1
 
-  @Store db = getters('db')
-   @Store vars = getters('vars')
-
-   @Lifecycle mounted() { this.getData();
+    mounted() { this.getData();
   
        //here you show the alert
        this.$on("onsavepost",()=>{ 
@@ -110,7 +107,7 @@ export default class extends Vue {
      
     }
 
-  @Watch(['db','connected'])
+  @Watch('db', { immediate:true })
   watchthis(neval, oldval) { // 
     console.log(this.$route.path);
       if (this.db.connected) {
@@ -119,7 +116,7 @@ export default class extends Vue {
   }
 
 
-  @Watch(["$route","path"])
+  @Watch("$route", { immediate:true })
         watchpath(this, newVal?: any, oldVal?: any) { // this.$route.path:string , newVal?:any, oldVal?:any 
             if (this.$route.path != undefined)
                  this.getData();    

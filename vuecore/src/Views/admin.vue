@@ -40,8 +40,8 @@
 
 </template>
 <script lang="ts">
-    import { Component, create, getHelper, Vue, Store, Prop, Watch, Lifecycle } from '../ext'
-import editpost from '../components/admin/editpost'
+    import { Component, Vue } from '../ext'
+import editpost from '../components/admin/editpost.vue'
 import home from '../Views/home.vue'
 var multiselect = require('vue-multiselect').default;
 
@@ -56,7 +56,7 @@ export default class admin extends Vue {
         console.log("enter your code")
 
     }
-    @Lifecycle mounted() {
+     mounted() {
 
         //here you show the alert
         this.$on("onsavepost", () => {

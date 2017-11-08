@@ -1,4 +1,4 @@
-import { Component, create, getHelper, Vue, Store } from '../ext'
+import { Component, Vue} from '../ext1'
 //let BootstrapVue = require('bootstrap-vue'); 
 import  multiselect from 'vue-multiselect';
 //var multiselect = require('vue-multiselect').default;

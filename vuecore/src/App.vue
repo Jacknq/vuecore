@@ -56,10 +56,10 @@
 
 import  admin from './Views/admin.vue';
 import  store  from './System/store'
-import { Component, create, getHelper, Vue, Store, Prop, Watch, Lifecycle,CreateElement,p }  from './ext'
+import { Component, Vue }  from './ext'
 //import * as d  from '../code/Backend/repo/t4/hubsflow'
 //SgnRCloud
- var { getters, commit } = getHelper(store)
+ //var { getters, commit } = getHelper(store)
 
 import 'bootstrap'
 
@@ -76,7 +76,7 @@ export default class App extends Vue {
     return "at"//this.vars.location;
   }
 
-  @Lifecycle mounted() {
+  mounted() {
        //here you show the alert
     
   

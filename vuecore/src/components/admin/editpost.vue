@@ -40,12 +40,12 @@
    </div>
 </template>
 <script lang="ts">
-import { Component, create, getHelper, Vue, Store, Prop, Watch,d, p,Vuex,Lifecycle } from '../../ext1'
+import { Component,  Vue,  Prop, Watch,d } from '../../ext1'
 import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime"
-    var multiselect = require('vue-multiselect').default;
+   // var multiselect = require('vue-multiselect').default;
  
-    @Component({
-        components: { multiselect: multiselect }  
+    @Component({ 
+       // components: { multiselect: multiselect }  
   
     })
     export default class epost extends Vue {
@@ -98,7 +98,7 @@ import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime"
                
       }
      
-      @Lifecycle mounted() {
+      mounted() {
        //here you show the alert
        if(this.mode=='insert')
         {
