@@ -33,7 +33,7 @@
             <h2> Admin</h2>
             <editpost/>
                      <a href="#"> Back to top</a>
-         <home/>
+            <home/>
         </div>
     </div>
 </div>
