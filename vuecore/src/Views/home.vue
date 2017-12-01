@@ -23,7 +23,7 @@
                   </div>
                    <a :href="'/post/'+post.ID"> . . . </a>
                   </p>
-                  <a v-if="vars.isAuth" @click.prevent="delpost(post.ID)" href="#">Delete</a>
+                  <a v-if="!vars.isAuth" @click.prevent="delpost(post.ID)" href="#">Delete</a>
                  
                 </article>             
                 
@@ -38,7 +38,7 @@
               <!-- /.blog-main -->
 
   <p>
-    <div v-on:onsavepost="getData"></div>
+   
                 <a href="#"> Back to top</a>
               </p>
             </div>
@@ -73,9 +73,8 @@ export default class extends Vue {
   
        //here you show the alert
        this.$on("onsavepost",()=>{ 
-        // console.log("catched the event2");
-         this.getData();
-         });
+     
+         this.getData();         });
            
    } 
 
