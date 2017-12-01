@@ -36,3 +36,6 @@ dotnet build
 ![screenshot](/vuecore/src/assets/screen1.png)
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+# T4 transforms tt template
+dotnet t4 trans -f test.tt
