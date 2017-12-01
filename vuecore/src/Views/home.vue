@@ -69,7 +69,7 @@ export default class extends Vue {
    pagesize = 3
    pagecount = 1
 
-    mounted() { this.getData();
+    created() { this.getData();
   
        //here you show the alert
        this.$on("onsavepost",()=>{ 
@@ -107,10 +107,12 @@ export default class extends Vue {
      
     }
 
-  @Watch('db', { immediate:true })
+
+
+  @Watch('connected')
   watchthis(neval, oldval) { // 
     console.log(this.$route.path);
-      if (this.db.connected) {
+      if (this.connected) {
         this.getData();    
     }
   }
