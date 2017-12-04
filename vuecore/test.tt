@@ -64,8 +64,8 @@ foreach (var hub in types)
   {
 
       public hello():Promise<string>
-      {
-          return fetchival('backenduri', { 
+      {  //todo parametrize and make more dynamic
+          return fetchival('http://localhost:5000/test/hello', { 
                 headers: { 'Content-Type': 'application/json', token:'yourcookie' }    
                 }).get({    
                     search:'test'	

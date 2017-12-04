@@ -1,12 +1,12 @@
 <template>
    <div class="row">
               <div class="col-sm-8 col-md-offset-1 blog-main">
-                  <article class="clearfix" v-for="post in posts">
+                  <article class="clearfix" v-for="post in posts" :key="post.ID">
                 
                   <div class="post-date">
                     <div class="row justify-content-between">
                       <div class="col-6">
-                        {{ new Date(post.DateCreated).toLocaleDateString('de') }} | <a href="#"> Jack </a>
+                        {{ post.DateCreated | dtformat }} | <a href="#"> Jack </a>
                       </div>
                       <div class="col-2">
                         <span> <a href="#">11 <i class="fa fa-comments-o" aria-hidden="true"></i></a > </span>
@@ -51,7 +51,7 @@ import { RouterOptions, Location, RouteConfig, Route } from 'vue-router'
 //import  {Vue }  from '../ext'
  var multiselect = require('vue-multiselect').default;
  import  store  from '../System/store'
-
+import {Api} from '../../test'
 
  import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime"
 
@@ -86,12 +86,16 @@ export default class extends Vue {
      }
      if (this.db.connected) {
        this.db.bHub.getPosts("", "", this.pagenr,this.pagesize).then((res:
-         d.Post[]) => {  this.posts = res;//
+         d.Post[]) => 
+         {  
+           this.posts = res;//
            if(res.length>0)
            this.pagecount =res[0].Count/this.pagesize;
 
          }).catch((reason:any)=>{console.log(reason);});
        }
+     let api:Api = new Api();
+      //api.test.hello()
 
     }
 
