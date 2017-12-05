@@ -32,7 +32,7 @@
           <div class="col-md-9 col-lg-9">
             <h2> Admin</h2>
             <editpost/>
-                     <a href="#"> Back to top</a>
+            
             <home/>
         </div>
     </div>

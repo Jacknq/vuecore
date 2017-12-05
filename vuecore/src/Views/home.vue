@@ -40,7 +40,10 @@
   <p>
    
                 <a href="#"> Back to top</a>
+                <div> {{msg}} </div>
               </p>
+                
+               
             </div>
             <!-- /.row -->
     
@@ -68,6 +71,7 @@ export default class extends Vue {
    pagenr = 1
    pagesize = 3
    pagecount = 1
+   msg=''
 
     created() { this.getData();
   
@@ -75,6 +79,14 @@ export default class extends Vue {
        this.$on("onsavepost",()=>{ 
      
          this.getData();         });
+  
+  let api:Api = new Api();
+     if(this.msg=='')
+     {
+     api.test.hello("something").then((val)=>{
+        this.msg = val;
+      });
+      }
            
    } 
 
@@ -94,8 +106,8 @@ export default class extends Vue {
 
          }).catch((reason:any)=>{console.log(reason);});
        }
-     let api:Api = new Api();
-      //api.test.hello()
+
+    
 
     }
 

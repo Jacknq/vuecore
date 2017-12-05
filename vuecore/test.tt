@@ -47,7 +47,7 @@ foreach (var hub in types)
 #>
 
     /** * The hub implemented by <#=hub.FullName#>    */
-  public  <#= hub.Name!=null?hName:hName #> : <#= hub.Name #>;	 
+  public  <#= hub.Name!=null?hName:hName #> : <#= hub.Name #> = new <#= hub.Name #>();	 
 <#
 }
 #>
