@@ -17,7 +17,7 @@
                   <h3> <a :href="'/post/'+post.ID"> {{ post.Title }}</a></h3>
                   <p> 
                   <div v-if="post.Content!=null">
-                  {{ post.Content.substr(0, 250) }}
+                  {{ post.Content }}
                   </div>
                   <div v-else>
                   </div>
