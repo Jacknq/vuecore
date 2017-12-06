@@ -7,7 +7,7 @@ Vue.use(Vuex);
 interface Oauth {
   data: object;
   provider: string;
-}
+}//define shape of your store
 export interface storeData {
   count: number;
   isAuth: boolean;
@@ -18,12 +18,12 @@ export interface storeData {
   servurl: string;
   dateformat: string;
   oauth: Oauth;
-}
+}//lets store backend url somewhere
 var host =
   window.document.location.port == "8080"
     ? "http://localhost:5000"
     : window.location.origin;
-//will be in local storage
+//define initial values
 const dstate: storeData = {
   count: 0,
   isAuth: false,
@@ -59,7 +59,7 @@ const store = new Vuex.Store({
   mutations: {
     setvars(state, s: storeData) {
       state.vars = s;
-      storage.setItem(storage.C_ENV_KEY, s);
+      storage.setItem(storage.C_ENV_KEY, s);//update local storage
     },
     setdb(state, s: cl.SgnRCloud) {
       state.db = s;
