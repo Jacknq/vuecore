@@ -49,94 +49,80 @@
     
 </template>
 <script lang="ts">
-import  {Component, Vue, Watch,d }  from '../ext1'
-import { RouterOptions, Location, RouteConfig, Route } from 'vue-router'
+import { Component, Vue, Watch, d } from "../ext1";
+import { RouterOptions, Location, RouteConfig, Route } from "vue-router";
 
- var multiselect = require('vue-multiselect').default;
- import  store  from '../System/store'
-import {Api} from '../../test'
+var multiselect = require("vue-multiselect").default;
+import store from "../System/store";
+import { Api } from "../../test";
 
- import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime"
+import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime";
 
-
- @Component({
-      name: 'home', components:{
-        multiselect:multiselect   
-    
-     }
- })
+@Component({
+  name: "home",
+  components: {
+    multiselect: multiselect
+  }
+})
 export default class extends Vue {
-  id='home'
-   posts:d.Post[]=null
-   pagenr = 1
-   pagesize = 3
-   pagecount = 1
-   msg=''
+  id = "home";
+  posts: d.Post[] = null;
+  pagenr = 1;
+  pagesize = 3;
+  pagecount = 1;
+  msg = "";
 
-    created() { this.getData();
-  
-       //here you show the alert
-       this.$on("onsavepost",()=>{ 
-     
-         this.getData();         });
-  
-  let api:Api = new Api();
+  created() {
+    this.getData();
+
+    //here you show the alert
+    this.$on("onsavepost", () => {
+      this.getData();
+    });
+
+    let api: Api = new Api();
     // if(this.msg=='')
     // {  api.test.hello("something").then((val)=>{  this.msg = val;    });    }
-           
-   } 
+  }
 
-   getData()
-   {
-     if(this.$route.params["nr"]!=null)
-     {
-      this.pagenr = Number.parseInt( this.$route.params["nr"]);
-     }
-     if (this.db.connected) {
-       this.db.bHub.getPosts("", "", this.pagenr,this.pagesize).then((res:
-         d.Post[]) => 
-         {  
-           this.posts = res;//
-           if(res.length>0)
-           this.pagecount =res[0].Count/this.pagesize;
-
-         }).catch((reason:any)=>{console.log(reason);});
-       }
-
-    
-
+  getData() {
+    if (this.$route.params["nr"] != null) {
+      this.pagenr = Number.parseInt(this.$route.params["nr"]);
     }
-
-    delpost(ID:number)
-    {
-      //console.log("deleting"+ID);
-        this.db.bHub.deletePost(ID).then(()=>{
-
-      this.getData();
-       // console.log("getin data");
+    if (this.db.connected) {
+      this.db.bHub
+        .getPosts("", "", this.pagenr, this.pagesize)
+        .then((res: d.Post[]) => {
+          this.posts = res; //
+          if (res.length > 0) this.pagecount = res[0].Count / this.pagesize;
+        })
+        .catch((reason: any) => {
+          console.log(reason);
         });
-     
-    }
-
-
-
-  @Watch('connected')
-  watchthis(neval, oldval) { // 
-    console.log(this.$route.path);
-      if (this.connected) {
-        this.getData();    
     }
   }
 
+  delpost(ID: number) {
+    //console.log("deleting"+ID);
+    this.db.bHub.deletePost(ID).then(() => {
+      this.getData();
+      // console.log("getin data");
+    });
+  }
 
-  @Watch("$route", { immediate:true })
-        watchpath(this, newVal?: any, oldVal?: any) { // this.$route.path:string , newVal?:any, oldVal?:any 
-            if (this.$route.path != undefined)
-                 this.getData();    
-        }
+  @Watch("connected")
+  watchthis(neval, oldval) {
+    //
+    console.log(this.$route.path);
+    if (this.connected) {
+      this.getData();
+    }
+  }
 
-
-   }
- 
-
+  @Watch("$route", { immediate: true })
+  watchpath(this, newVal?: any, oldVal?: any) {
+    // this.$route.path:string , newVal?:any, oldVal?:any
+    if (this.$route.path != undefined) this.getData();
+  }
+}
 </script>

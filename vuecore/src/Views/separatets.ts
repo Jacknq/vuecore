@@ -1,17 +1,16 @@
-import { Component, Vue} from '../ext1'
-//let BootstrapVue = require('bootstrap-vue'); 
-import  multiselect from 'vue-multiselect';
+import { Component, Vue } from "../ext1";
+//let BootstrapVue = require('bootstrap-vue');
+import multiselect from "vue-multiselect";
 //var multiselect = require('vue-multiselect').default;
 // name:string = 'separatets'
-//  name:'test' 
-@Component({ components: { multiselect }, name:'ts' })
-export default class extends Vue { // separatets extends Vue
-  someabout = 'aboutTS'
-  name = 'tscomponent'
+//  name:'test'
+@Component({ components: { multiselect }, name: "ts" })
+export default class extends Vue {
+  // separatets extends Vue
+  someabout = "aboutTS";
+  name = "tscomponent";
 
-   somemethod(): number {
-      
+  somemethod(): number {
     return 1;
   }
-
 }
