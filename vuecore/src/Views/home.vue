@@ -49,7 +49,7 @@
     
 </template>
 <script lang="ts">
-import { Component, Vue, Watch, d } from "../ext1";
+import { Component, Vue, Watch, d } from "../ext1";//encapsulate libs, good when source changes 
 import { RouterOptions, Location, RouteConfig, Route } from "vue-router";
 
 var multiselect = require("vue-multiselect").default;
