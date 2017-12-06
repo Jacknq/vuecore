@@ -15,7 +15,8 @@ b.Vue.use(VueRouter);
 
 export class Vue extends b.Vue {
   $v: any;
-
+  axios = axio;
+  
   get db() {
     return store.state.db;
   }
@@ -25,7 +26,7 @@ export class Vue extends b.Vue {
   get vars() {
     return store.state.vars;
   } 
-  axios = axio;
+ 
 
   //@Store setvars = commit('varsset')
   public log(val: String) {
