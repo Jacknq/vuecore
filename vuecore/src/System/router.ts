@@ -1,8 +1,7 @@
-import { Component, Vue } from '../ext'
+import { Component, Vue } from "../ext";
 //import Router = require('vue-router')
-import { RouterOptions, Location, RouteConfig, Route } from 'vue-router'
-import  VueRouter from 'vue-router'
-
+import { RouterOptions, Location, RouteConfig, Route } from "vue-router";
+import VueRouter from "vue-router";
 
 //import './vendor' //bootstrap
 //require('./main.scss'); //global css
@@ -17,25 +16,23 @@ import  VueRouter from 'vue-router'
   options parameter. 
 */
 
-var separatets = require('../Views/separatets.vue').default
+var separatets = require("../Views/separatets.vue").default;
 
-var home = require('../Views/home.vue').default
-var admin = require('../Views/admin.vue').default
+var home = require("../Views/home.vue").default;
+var admin = require("../Views/admin.vue").default;
 //var app = Vue.extend({});
 //var ro :RouteConfig[] = [ { path:'/', component:VueRouter  }]
 
 const router = new VueRouter({
-  mode: 'history', base:'', //subdomain
+  mode: "history",
+  base: "", //subdomain
   routes: [
+    { path: "/", component: admin },
+    { path: "/page/:nr", component: admin },
+    { path: "/search/:term", component: home },
 
-    { path: '/',component: admin },
-    { path: '/page/:nr',component: admin },
-    { path: '/search/:term',component: home },
-
-
-    { path: '/module/:compname' },
-    { path: '*', redirect: '/' },
-
+    { path: "/module/:compname" },
+    { path: "*", redirect: "/" }
   ]
 });
-export default router
+export default router;
