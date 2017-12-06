@@ -4,7 +4,7 @@ export { Component, Inject, Model, Prop, Watch } from "vue-property-decorator";
 import store, { storeData } from "./System/store";
 declare var require: any;
 import VueRouter from "vue-router";
-import axio, { AxiosRequestConfig, AxiosPromise } from "axios";
+//import axio, { AxiosRequestConfig, AxiosPromise } from "axios";
 import * as d from "../code/Backend/repo/t4/hubsflow";
 import  moment from "moment";
 export { d };
@@ -15,8 +15,8 @@ b.Vue.use(VueRouter);
 
 export class Vue extends b.Vue {
   $v: any;
-  axios = axio;
-  
+
+
   get db() {
     return store.state.db;
   }

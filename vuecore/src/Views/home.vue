@@ -51,7 +51,7 @@
 <script lang="ts">
 import  {Component, Vue, Watch,d }  from '../ext1'
 import { RouterOptions, Location, RouteConfig, Route } from 'vue-router'
-//import  {Vue }  from '../ext'
+
  var multiselect = require('vue-multiselect').default;
  import  store  from '../System/store'
 import {Api} from '../../test'
