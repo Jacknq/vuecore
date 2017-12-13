@@ -54,7 +54,7 @@ const statee: State = {
   vars: storeData
 };
 //creating typed vuex
-const store = new Vuex.Store({
+const store = new Vuex.Store<State>({
   state: statee,
   mutations: {
     setvars(state, s: storeData) {
