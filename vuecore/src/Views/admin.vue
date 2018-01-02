@@ -40,7 +40,7 @@
 
 </template>
 <script lang="ts">
-import { Component, Vue } from "../ext";
+import { Component, Vue } from "../ext1";
 //imagine origin of component will be direfent library one day,
 // this way you only make update only in ext file
 import editpost from "../components/admin/editpost.vue";

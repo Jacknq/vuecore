@@ -80,9 +80,14 @@ export default class extends Vue {
       this.getData();
     });
 
-    let api: Api = new Api();
-    // if(this.msg=='')
-    // {  api.test.hello("something").then((val)=>{  this.msg = val;    });    }
+
+  }
+  mounted()
+  {
+    this.log('url:'+this.vars.servurl);
+    let api: Api = new Api(this.vars.servurl);
+    if(this.msg=='')
+    {  api.test.hello("something").then((val)=>{  this.msg = val;    });    }
   }
 
   getData() {

@@ -40,6 +40,18 @@ declare var $:any;
 import fetchival from 'fetchival';
 
 export class Api {
+    constructor(baseurl: string) {
+        this.url = baseurl;
+  <#      foreach (var hub in types)
+{
+	string hName = GetController(hub.Name);
+#>  
+  this.<#= hub.Name!=null?hName:hName #> = new <#= hub.Name #>(this.url);	 
+<#
+}
+#>
+    }
+    url:string;
 <#
 foreach (var hub in types)
 {
@@ -47,7 +59,7 @@ foreach (var hub in types)
 #>
 
     /** * The hub implemented by <#=hub.FullName#>    */
-  public  <#= hub.Name!=null?hName:hName #> : <#= hub.Name #> = new <#= hub.Name #>();	 
+  public  <#= hub.Name!=null?hName:hName #> : <#= hub.Name #> ;	 
 <#
 }
 #>
@@ -62,10 +74,13 @@ foreach (var hub in types)
     /** * The hub implemented by <#=hub.FullName#>    */
   export class   <#= hub.Name #>
   {
-
+    constructor(baseurl: string) {
+        this.url = baseurl;
+    }
+    url:string;
       public hello(search:string):Promise<string>
       {  //todo parametrize and make more dynamic
-          return fetchival('http://localhost:5000/test/hello', { 
+          return fetchival(this.url+'/test/hello', { 
                 headers: { 'Content-Type': 'application/json', token:'yourcookie' }    
                 }).get({    
                     search:search	

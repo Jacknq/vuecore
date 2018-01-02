@@ -56,7 +56,7 @@
 
 import  admin from './Views/admin.vue';
 import  store  from './System/store'
-import { Component, Vue }  from './ext'
+import { Component, Vue }  from './ext1'
 //import * as d  from '../code/Backend/repo/t4/hubsflow'
 //SgnRCloud
  //var { getters, commit } = getHelper(store)
