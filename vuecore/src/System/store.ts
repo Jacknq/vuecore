@@ -67,10 +67,10 @@ let store =  new Vuex.Store<State>({
     }
   }
 });
-// store..subscribe((mutate, statee) => {
-//   if (mutate.type == "setvars") {
-//     console.log("subscribed muttate");
-//   }
-// });
+ store.subscribe((mutate, statee) => {
+   if (mutate.type == "setvars") {
+     console.log("subscribed muttate");
+   }
+ });
 
 export default store;
