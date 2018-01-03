@@ -55,7 +55,7 @@
 //CSS It's recommended to combine it with the css-loader: require("style!css!./file.css").
 
 import  admin from './Views/admin.vue';
-import  store  from './System/store'
+//import  store  from './System/store'
 import { Component, Vue }  from './ext1'
 //import * as d  from '../code/Backend/repo/t4/hubsflow'
 //SgnRCloud
@@ -239,7 +239,7 @@ height: 25vh;
 }
 
 .image-bg {
-    background-image:url('https://images4.alphacoders.com/234/234658.jpg');
+    background-image:url('./assets/bg.jpg');
 }
 
 .light-typo {

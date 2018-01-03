@@ -5,7 +5,7 @@ import { RouterOptions, Location, RouteConfig, Route } from "vue-router";
 import VueRouter from "vue-router";
 //import Vue from 'vue'
 import router from "./System/router";
-import store from "./System/store";
+import  store  from "./System/store";
 import App from "./app.vue";
 Vue.use(VueRouter);
 Vue.config.devtools = true; //enable debug for build

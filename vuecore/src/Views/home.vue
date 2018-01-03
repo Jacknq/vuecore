@@ -52,8 +52,8 @@
 import { Component, Vue, Watch, d } from "../ext1";//encapsulate libs, good when source changes 
 import { RouterOptions, Location, RouteConfig, Route } from "vue-router";
 
-var multiselect = require("vue-multiselect").default;
-import store from "../System/store";
+import multiselect from "vue-multiselect";
+//import store from "../System/store";
 import { Api } from "../../test";
 
 import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime";
@@ -79,15 +79,15 @@ export default class extends Vue {
     this.$on("onsavepost", () => {
       this.getData();
     });
-
-
-  }
-  mounted()
-  {
     this.log('url:'+this.vars.servurl);
     let api: Api = new Api(this.vars.servurl);
     if(this.msg=='')
     {  api.test.hello("something").then((val)=>{  this.msg = val;    });    }
+
+  }
+  mounted()
+  {
+ 
   }
 
   getData() {
