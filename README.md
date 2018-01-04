@@ -37,5 +37,5 @@ dotnet build
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-# T4 transforms tt template
+# T4 transforms tt template in .net core
 dotnet t4 trans -f test.tt
