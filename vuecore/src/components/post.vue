@@ -35,9 +35,11 @@ export default class post extends Vue {
   @Prop() post: d.Post;
   dpost = this.post;
 
-  delpost(id:number)
-  {
-      
+  delpost(ID: number) {
+  
+    this.db.bHub.deletePost(ID).then(() => {
+      //success
+    });
   }
 }
 </script>

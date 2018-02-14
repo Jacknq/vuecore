@@ -84,13 +84,7 @@ export default class extends Vue {
     }
   }
 
-  delpost(ID: number) {
-    //console.log("deleting"+ID);
-    this.db.bHub.deletePost(ID).then(() => {
-      this.getData();
-      // console.log("getin data");
-    });
-  }
+ 
 
   @Watch("connected")
   watchthis(neval, oldval) {
