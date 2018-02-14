@@ -1,14 +1,14 @@
 import { Component, Inject, Model, Prop, Watch } from "vue-property-decorator";
 export { Component, Inject, Model, Prop, Watch } from "vue-property-decorator";
 //import Vue from 'vue'
-
+import moment from "moment";
 declare var require: any;
 import VueRouter from "vue-router";
 //import axio, { AxiosRequestConfig, AxiosPromise } from "axios";
 import * as d from "../code/Backend/repo/t4/domain";
-import moment from "moment";
+
 export { d };
-import * as b from "./ext";
+import * as b from "vue-property-decorator";
 b.Vue.use(VueRouter);
 import store, { storeData, State } from "./System/store";
 import { Store } from "vuex";

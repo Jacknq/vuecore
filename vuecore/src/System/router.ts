@@ -1,4 +1,4 @@
-import { Component, Vue } from "../ext";
+import { Component, Vue } from "vue-property-decorator";
 //import Router = require('vue-router')
 import { RouterOptions, Location, RouteConfig, Route } from "vue-router";
 import VueRouter from "vue-router";
