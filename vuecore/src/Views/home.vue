@@ -19,7 +19,7 @@
    
                 <a href="#"> Back to top</a>
                 <div> {{msg}} </div>
-              </p>
+              
                 
                
             </div>

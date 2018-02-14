@@ -14,12 +14,12 @@
                  
                   </div>
                   <h3> <a :href="'/post/'+dpost.ID"> {{ dpost.Title }}</a></h3>
-                  <p> 
+                   
                   <div v-if="dpost.Content!=null">
                   {{ post.Content }}
                   </div>                  
                    <a :href="'/post/'+dpost.ID"> . . . </a>
-                  </p>
+                  
                   <a v-if="!vars.isAuth" @click.prevent="delpost(dpost.ID)" href="#">Delete</a>
                  
                 </article>
