@@ -2,8 +2,8 @@ import Vue from "vue";
 //import { Component, Vue } from "../ext1";
 import * as moment from "moment";
 import { StorageService } from "./localstorage";
-import * as cl from "../../code/Backend/repo/t4/hubsflow";
-import Vuex, {Store} from "vuex";
+import * as cl from "../../code/Backend/repo/t4/domain";
+import Vuex, { Store } from "vuex";
 Vue.use(Vuex);
 interface Oauth {
   data: object;
@@ -55,7 +55,7 @@ const statee: State = {
   vars: storeData
 };
 //creating typed vuex
-let store =  new Vuex.Store<State>({
+let store = new Vuex.Store<State>({
   state: statee,
   mutations: {
     setvars(state, s: storeData) {
@@ -67,10 +67,10 @@ let store =  new Vuex.Store<State>({
     }
   }
 });
- store.subscribe((mutate, statee) => {
-   if (mutate.type == "setvars") {
-     console.log("subscribed muttate");
-   }
- });
+store.subscribe((mutate, statee) => {
+  if (mutate.type == "setvars") {
+    console.log("subscribed muttate");
+  }
+});
 
 export default store;

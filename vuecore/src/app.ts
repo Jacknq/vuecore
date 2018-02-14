@@ -18,5 +18,5 @@ let appl = new Vue({
   render: h => h("App")
 });
 
-//rt.push('/about');//will navigate to specific route
+
 export default { appl, router }; //app

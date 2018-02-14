@@ -1,32 +1,35 @@
 import { Component, Inject, Model, Prop, Watch } from "vue-property-decorator";
 export { Component, Inject, Model, Prop, Watch } from "vue-property-decorator";
 //import Vue from 'vue'
-import store, { storeData, State } from "./System/store";
+
 declare var require: any;
 import VueRouter from "vue-router";
 //import axio, { AxiosRequestConfig, AxiosPromise } from "axios";
-import * as d from "../code/Backend/repo/t4/hubsflow";
+import * as d from "../code/Backend/repo/t4/domain";
 import moment from "moment";
 export { d };
 import * as b from "./ext";
-import { Store } from "vuex";
 b.Vue.use(VueRouter);
+import store, { storeData, State } from "./System/store";
+import { Store } from "vuex";
+
 
 //extending default vue with some more stuff
 
 export class Vue extends b.Vue {
   $v: any;
+  $store = store;
 
   get db() {
-    return this.$storets.state.db;
+    return this.$store.state.db;
   }
   get connected() {
-    return this.$storets.state.db.connected;
+    return this.$store.state.db.connected;
   }
   get vars() {
-    return this.$storets.state.vars;
+    return this.$store.state.vars;
   }
-  get $storets() {
+  get $storets() {//if you want separate computed prop
     return this.$store as Store<State>; //store;//
   }
 
@@ -38,10 +41,10 @@ export class Vue extends b.Vue {
   }
 
   setvars(vars: storeData): void {
-    this.$storets.commit("setvars", vars);
+    this.$store.commit("setvars", vars);
   }
   setdb(db: d.SgnRCloud): void {
-    this.$storets.commit("setdb", db);
+    this.$store.commit("setdb", db);
   }
 }
 
