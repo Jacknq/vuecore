@@ -1,0 +1,45 @@
+<template>
+   <div>
+            <article v-if="dpost!=null" class="clearfix" >
+                
+                  <div class="post-date">
+                    <div class="row justify-content-between">
+                      <div class="col-6">
+                        {{ dpost.DateCreated | dtformat }} | <a href="#"> Jack </a>
+                      </div>
+                      <div class="col-2">
+                        <span> <a href="#">11 <i class="fa fa-comments-o" aria-hidden="true"></i></a > </span>
+                      </div>
+                    </div>
+                 
+                  </div>
+                  <h3> <a :href="'/post/'+dpost.ID"> {{ dpost.Title }}</a></h3>
+                  <p> 
+                  <div v-if="dpost.Content!=null">
+                  {{ post.Content }}
+                  </div>                  
+                   <a :href="'/post/'+dpost.ID"> . . . </a>
+                  </p>
+                  <a v-if="!vars.isAuth" @click.prevent="delpost(dpost.ID)" href="#">Delete</a>
+                 
+                </article>
+   </div>
+</template>
+<script lang="ts">
+import { Component, Vue, Prop, Watch, d } from "../ext1";
+
+@Component({})
+export default class post extends Vue {
+  id = "post";
+
+  @Prop() post: d.Post;
+  dpost = this.post;
+
+  delpost(id:number)
+  {
+      
+  }
+}
+</script>
+<!--<style lang="less" >
+</style>-->

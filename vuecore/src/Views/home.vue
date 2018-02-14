@@ -1,29 +1,9 @@
 <template>
    <div class="row">
               <div class="col-sm-8 col-md-offset-1 blog-main">
-                  <article class="clearfix" v-for="post in posts" :key="post.ID">
-                
-                  <div class="post-date">
-                    <div class="row justify-content-between">
-                      <div class="col-6">
-                        {{ post.DateCreated | dtformat }} | <a href="#"> Jack </a>
-                      </div>
-                      <div class="col-2">
-                        <span> <a href="#">11 <i class="fa fa-comments-o" aria-hidden="true"></i></a > </span>
-                      </div>
-                    </div>
-                 
-                  </div>
-                  <h3> <a :href="'/post/'+post.ID"> {{ post.Title }}</a></h3>
-                  <p> 
-                  <div v-if="post.Content!=null">
-                  {{ post.Content }}
-                  </div>                  
-                   <a :href="'/post/'+post.ID"> . . . </a>
-                  </p>
-                  <a v-if="!vars.isAuth" @click.prevent="delpost(post.ID)" href="#">Delete</a>
-                 
-                </article>             
+                <div v-for="post in posts" :key="post.ID">                
+                    <post :post="post"></post>
+                </div>             
                 
                 <nav class="blog-pagination">
                 <router-link v-if="pagenr>1" class="btn btn-outline-secondary" :to="'/page/'+(pagenr-1)">Newer</router-link>
@@ -50,16 +30,15 @@
 import { Component, Vue, Watch, d } from "../ext1";//encapsulate libs, good when source changes 
 import { RouterOptions, Location, RouteConfig, Route } from "vue-router";
 
-import multiselect from "vue-multiselect";
 //import store from "../System/store";
 import { Api } from "../../test";
+import post from "../components/post.vue";
 
-import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime";
 
 @Component({
   name: "home",
   components: {
-    multiselect: multiselect
+    post
   }
 })
 export default class extends Vue {

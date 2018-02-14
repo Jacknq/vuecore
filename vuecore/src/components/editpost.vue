@@ -40,7 +40,7 @@
    </div>
 </template>
 <script lang="ts">
-import { Component,  Vue,  Prop, Watch,d } from '../../ext1'
+import { Component,  Vue,  Prop, Watch,d } from '../ext1'
 import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime"
    // var multiselect = require('vue-multiselect').default;
  
