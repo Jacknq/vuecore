@@ -1,5 +1,5 @@
 import { Component, Inject, Model, Prop, Watch } from "vue-property-decorator";
-export { Component, Inject, Model, Prop, Watch } from "vue-property-decorator";
+export { Component, Inject, Model, Prop, Watch, Emit, Provide } from "vue-property-decorator";
 //import Vue from 'vue'
 import moment from "moment";
 declare var require: any;

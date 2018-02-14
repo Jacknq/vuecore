@@ -4,7 +4,7 @@
    </div>
 </template>
 <script lang="ts">
-    import { Component, create, getHelper, Vue, Store, Prop, Watch } from '../ext' 
+    import { Component, Vue, Prop, Watch } from '../ext1' 
  
     @Component({
       
