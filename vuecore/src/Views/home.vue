@@ -18,9 +18,7 @@
                   <p> 
                   <div v-if="post.Content!=null">
                   {{ post.Content }}
-                  </div>
-                  <div v-else>
-                  </div>
+                  </div>                  
                    <a :href="'/post/'+post.ID"> . . . </a>
                   </p>
                   <a v-if="!vars.isAuth" @click.prevent="delpost(post.ID)" href="#">Delete</a>
