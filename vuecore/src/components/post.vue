@@ -13,10 +13,10 @@
                     </div>
                  
                   </div>
-                  <h3> <a :href="'/post/'+dpost.ID"> {{ dpost.Title }}</a></h3>
+                  <h3> <router-link :to="'/post/'+dpost.ID" >{{ dpost.Title }}</router-link> </h3>
                    
                   <div v-if="dpost.Content!=null">
-                  {{ post.Content }}
+                  {{ dpost.Content }}
                   </div>                  
                    <a :href="'/post/'+dpost.ID"> . . . </a>
                   
@@ -27,13 +27,29 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Prop, Watch, d } from "../ext1";
-
+import VueRouter from "vue-router";
 @Component({})
 export default class post extends Vue {
   id = "post";
 
-  @Prop() post: d.Post;
+  @Prop({ default:null}) post: d.Post;
   dpost = this.post;
+
+created()
+{
+  if(this.dpost==null)
+  {
+     if (this.$route.params["id"] != null) {
+    this.db.bHub.getPosts(this.$route.params["id"], "", 1,1)
+    .then((r:d.Post[])=>{
+      if(r!=null&& r.length>0)
+      {
+      this.dpost = r[0];
+      }
+      });
+     }
+  }
+}
 
   delpost(ID: number) {
   

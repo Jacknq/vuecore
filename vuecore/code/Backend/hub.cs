@@ -4,6 +4,7 @@ using bVue.code.Backend.repo;
 using System.Collections.Generic;
 using System.Text;
 using bvue.code.Backend;
+using System.Text.RegularExpressions;
 
 namespace bVue.code
 {
@@ -44,6 +45,12 @@ namespace bVue.code
             List<Post> q ;
             if(!string.IsNullOrEmpty(search))
             {
+                if(isNumber(search))
+                {
+                      q = await repo.GetQuery<Post>(p => p.ID == int.Parse(search),
+                      orderby, page, pagesize);
+                       return q;  
+                }
              q = await repo.GetQuery<Post>(p => p.Title.Contains(search) 
              || p.Content.Contains(search),orderby, page, pagesize);
              return q;
@@ -51,6 +58,12 @@ namespace bVue.code
             q = await repo.GetQuery<Post>(p => p.ID>0, orderby, page, pagesize);
             
             return q;          
+        }
+
+        bool isNumber(string s)
+        {
+             var isNumber = new Regex(@"^\d+$");
+           return  isNumber.IsMatch(s);
         }
 
         public int InsertPost(Post p)

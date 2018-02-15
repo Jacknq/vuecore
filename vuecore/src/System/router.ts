@@ -19,6 +19,7 @@ import VueRouter from "vue-router";
 var separatets = require("../Views/separatets.vue").default;
 
 import listpost from "../components/list-post.vue"
+import post from "../components/post.vue"
 import index from "../Views/index.vue";
 //var app = Vue.extend({});
 //var ro :RouteConfig[] = [ { path:'/', component:VueRouter  }]
@@ -29,7 +30,7 @@ const router = new VueRouter({
   routes: [
     { path: "/", component: index },
     { path: "/page/:nr", component: index },
-    { path: "/post/:id", component: index },
+    { path: "/post/:id", component: post },
     { path: "/search/:term", component: listpost },
 
     { path: "/module/:compname" },

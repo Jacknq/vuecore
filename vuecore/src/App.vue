@@ -53,12 +53,13 @@
 </template>
 <script lang="ts">
 import  index from './Views/index.vue';
+import  post from './components/post.vue';
 //import  store  from './System/store'
 import { Component, Vue }  from './ext1'
 import 'bootstrap'
 
 
-@Component({  components:{  index }  
+@Component({  components:{  index, post }  
 
  }) 
 export default class App extends Vue {
