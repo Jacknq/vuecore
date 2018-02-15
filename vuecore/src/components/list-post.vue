@@ -2,7 +2,7 @@
    <div class="row">
               <div class="col-sm-8 col-md-offset-1 blog-main">
                 <div v-for="post in posts" :key="post.ID">                
-                    <post :post="post"></post>
+                    <post @ondeletepost="postdeleted" :post="post"></post>
                 </div>             
                 
                 <nav class="blog-pagination">
@@ -52,15 +52,20 @@ export default class extends Vue {
   created() {
     this.getData();
 
-    //here you show the alert
-    this.$store.state.bus.$on("onsavepost", (post:d.Post) => {
-      this.getData();
-    });
+    //in this case I want to react on some event, not sharing state, so using eventbus
+     this.$store.state.bus.$on("onsavepost", (post:d.Post) => {
+       this.getData();
+     });
+     
     this.log('url:'+this.vars.servurl);
     let api: Api = new Api(this.vars.servurl);
     if(this.msg=='')
     {  api.test.hello("something").then((val)=>{  this.msg = val;    });    }
 
+  }
+  postdeleted(id:number)
+  {
+    this.getData();
   }
   mounted()
   {

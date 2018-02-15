@@ -74,10 +74,14 @@ import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime"
         {
           this.db.bHub.insertPost(this.post).then((v:number)=>{
           this.saved = true;
+          //let know parent
+          this.$emit("onsavepost", this.post);
+          //in this case I dont share any global state, didnt modify any state,
+          //so I raise event on eventbus - otherwise I would commit mutation 
+          this.$store.state.bus.$emit("onsavepost", this.post);
+        
           this.initNewData();
           this.showSucc();
-          this.$emit("onsavepost", this.post);
-          this.$store.state.bus.$emit("onsavepost", this.post);
         });
         }
       
