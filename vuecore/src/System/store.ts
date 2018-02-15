@@ -45,11 +45,13 @@ const storeData: storeData = JSON.parse(storage.getItem(storage.C_ENV_KEY));
 
 //defining state
 export interface State {
+  bus:Vue
   db: cl.SgnRCloud;
   vars: storeData;
 }
 //you can have multiple slots in state, local state and imported types
 const statee: State = {
+  bus: new Vue(),
   db: new cl.SgnRCloud(dstate.servurl, storeData.token),
   vars: storeData
 };

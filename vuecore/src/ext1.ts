@@ -19,7 +19,8 @@ import { Store } from "vuex";
 export class Vue extends b.Vue {
   $v: any;
   $store = store;
-
+  
+  
   get db() {
     return this.$store.state.db;
   }

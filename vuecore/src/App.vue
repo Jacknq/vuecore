@@ -28,9 +28,9 @@
 
          <transition name="fade" mode="out-in">
           <!--<div v-if="this.$route.params.compname==undefined">-->
-             <div v-if="this.$route.path!='/Admin'" >
+           
           <router-view class="view"></router-view>
-          </div>
+         
         </transition>
 
           </div>
@@ -52,13 +52,13 @@
 
 </template>
 <script lang="ts">
-import  admin from './Views/admin.vue';
+import  index from './Views/index.vue';
 //import  store  from './System/store'
 import { Component, Vue }  from './ext1'
 import 'bootstrap'
 
 
-@Component({  components:{  admin }  
+@Component({  components:{  index }  
 
  }) 
 export default class App extends Vue {

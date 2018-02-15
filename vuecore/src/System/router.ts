@@ -18,8 +18,8 @@ import VueRouter from "vue-router";
 
 var separatets = require("../Views/separatets.vue").default;
 
-var home = require("../Views/home.vue").default;
-var admin = require("../Views/admin.vue").default;
+import listpost from "../components/list-post.vue"
+import index from "../Views/index.vue";
 //var app = Vue.extend({});
 //var ro :RouteConfig[] = [ { path:'/', component:VueRouter  }]
 
@@ -27,9 +27,10 @@ const router = new VueRouter({
   mode: "history",
   base: "", //subdomain
   routes: [
-    { path: "/", component: admin },
-    { path: "/page/:nr", component: admin },
-    { path: "/search/:term", component: home },
+    { path: "/", component: index },
+    { path: "/page/:nr", component: index },
+    { path: "/post/:id", component: index },
+    { path: "/search/:term", component: listpost },
 
     { path: "/module/:compname" },
     { path: "*", redirect: "/" }

@@ -76,7 +76,8 @@ import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime"
           this.saved = true;
           this.initNewData();
           this.showSucc();
-          this.$parent.$emit("onsavepost", this.post);
+          this.$emit("onsavepost", this.post);
+          this.$store.state.bus.$emit("onsavepost", this.post);
         });
         }
       

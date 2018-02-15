@@ -42,7 +42,7 @@ import post from "../components/post.vue";
   }
 })
 export default class extends Vue {
-  id = "home";
+  id = "listpost";
   posts: d.Post[] = null;
   pagenr = 1;
   pagesize = 3;
@@ -53,7 +53,7 @@ export default class extends Vue {
     this.getData();
 
     //here you show the alert
-    this.$on("onsavepost", () => {
+    this.$store.state.bus.$on("onsavepost", (post:d.Post) => {
       this.getData();
     });
     this.log('url:'+this.vars.servurl);
