@@ -37,7 +37,7 @@ export default class post extends Vue {
 
   delpost(ID: number) {
   
-    this.db.bHub.deletePost(ID).then(() => {
+    this.db.bHub.deletePost(ID).then((ID) => {
       //success
       this.$emit("ondeletepost", ID);
     });
