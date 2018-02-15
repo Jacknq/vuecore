@@ -32,28 +32,26 @@ import { Component, Vue, Prop, Watch, d } from "../ext1";
 export default class post extends Vue {
   id = "post";
 
-  @Prop({ default:null}) post: d.Post;
+  @Prop({ default: null })
+  post: d.Post;
   dpost = this.post;
 
-created()
-{
-  if(this.dpost==null)
-  {
-     if (this.$route.params["id"] != null) {
-    this.db.bHub.getPosts(this.$route.params["id"], "", 1,1)
-    .then((r:d.Post[])=>{
-      if(r!=null&& r.length>0)
-      {
-      this.dpost = r[0];
+  created() {
+    if (this.dpost == null) {
+      if (this.$route.params["id"] != null) {
+        this.db.bHub
+          .getPosts(this.$route.params["id"], "", 1, 1)
+          .then((r: d.Post[]) => {
+            if (r != null && r.length > 0) {
+              this.dpost = r[0];
+            }
+          });
       }
-      });
-     }
+    }
   }
-}
 
   delpost(ID: number) {
-  
-    this.db.bHub.deletePost(ID).then((ID) => {
+    this.db.bHub.deletePost(ID).then(ID => {
       //success
       this.$emit("ondeletepost", ID);
     });
