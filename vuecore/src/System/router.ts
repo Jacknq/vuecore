@@ -18,7 +18,7 @@ import VueRouter from "vue-router";
 
 var separatets = require("../Views/separatets.vue").default;
 
-import listpost from "../components/list-post.vue"
+import listpost from "../components/post-list.vue"
 import post from "../components/post.vue"
 import index from "../Views/index.vue";
 //var app = Vue.extend({});
