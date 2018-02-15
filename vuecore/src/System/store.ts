@@ -34,8 +34,7 @@ const dstate: storeData = {
   location: "AT",
   servurl: host,
   dateformat: "DD.MM.YYYY",
-  oauth: null
-  //db : null
+  oauth: null  
 };
 
 const storage = new StorageService();
