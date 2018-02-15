@@ -27,7 +27,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Prop, Watch, d } from "../ext1";
-import VueRouter from "vue-router";
+//import VueRouter from "vue-router";
 @Component({})
 export default class post extends Vue {
   id = "post";

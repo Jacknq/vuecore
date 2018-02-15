@@ -40,78 +40,53 @@
    </div>
 </template>
 <script lang="ts">
-import { Component,  Vue,  Prop, Watch,d } from '../ext1'
-import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime"
-   // var multiselect = require('vue-multiselect').default;
- 
-    @Component({ 
-       // components: { multiselect: multiselect }  
-  
-    })
-    export default class epost extends Vue {
-        name = 'editpost'
-        mode = 'insert'
+import { Component, Vue, Prop, Watch, d } from "../ext1";
+import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime";
+// var multiselect = require('vue-multiselect').default;
 
-        mselected = [];
-        options = ['polo', 'trans', 'golf','jaguar', 'a6', 'tiguan', 'kadjar','ateca']; 
+@Component({
+  // components: { multiselect: multiselect }
+})
+export default class epost extends Vue {
+  name = "editpost";
+  mode = "insert";
 
-        post:d.Post = new d.Post();
-       
-        saved:boolean =false;
-  
-    addTag(tag:string)
-    {
-        this.options.push(tag);
-         this.mselected.push(tag)
+  post: d.Post = new d.Post();
+
+  saved: boolean = false;
+
+
+  save() {
+    if (this.mode == "insert") {
+      this.db.bHub.insertPost(this.post).then((v: number) => {
+        this.saved = true;
+        //let know parent
+        this.$emit("onsavepost", this.post);
+        //in this case I dont share any global state, didnt modify any state,
+        //so I raise event on eventbus - otherwise I would commit mutation
+        this.$store.state.bus.$emit("onsavepost", this.post);
+
+        this.initNewData();
+        this.showSucc();
+      });
     }
-    updateSelectedTagging (value) { //this.post.Categories
-       // console.log('@tag: ', value)
-        this.mselected = value
-      }
-      save()
-      {
-        if(this.mode=='insert')
-        {
-          this.db.bHub.insertPost(this.post).then((v:number)=>{
-          this.saved = true;
-          //let know parent
-          this.$emit("onsavepost", this.post);
-          //in this case I dont share any global state, didnt modify any state,
-          //so I raise event on eventbus - otherwise I would commit mutation 
-          this.$store.state.bus.$emit("onsavepost", this.post);
-        
-          this.initNewData();
-          this.showSucc();
-        });
-        }
-      
-      }
-      initNewData()
-      {
-          this.post = new d.Post();
-          this.post.DateCreated = DateTime.now.toJsDate();
+  }
+  initNewData() {
+    this.post = new d.Post();
+    this.post.DateCreated = DateTime.now.toJsDate();
+  }
+  showSucc() {
+    window.setTimeout(() => {
+      this.saved = false;
+    }, 4000);
+  }
+  showErr() {}
 
-      }
-      showSucc()
-      {
-          window.setTimeout(()=> {       
-               this.saved = false;         
-        }, 4000);              
-      }
-      showErr()
-      {
-               
-      }
-     
-      mounted() {
-       //here you show the alert
-       if(this.mode=='insert')
-        {
-         this.initNewData();
-        }
-
-      }
-        
-
+  mounted() {
+    //here you show the alert
+    if (this.mode == "insert") {
+      this.initNewData();
     }
+  }
+}
 </script>
