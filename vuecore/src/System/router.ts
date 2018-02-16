@@ -2,10 +2,6 @@ import { Component, Vue } from "vue-property-decorator";
 //import Router = require('vue-router')
 import { RouterOptions, Location, RouteConfig, Route } from "vue-router";
 import VueRouter from "vue-router";
-
-//import './vendor' //bootstrap
-//require('./main.scss'); //global css
-
 /*
   For components that will be used in html (such as navbar),
   all you need to do is import the file somewhere in your code,
@@ -21,8 +17,6 @@ var separatets = require("../Views/separatets.vue").default;
 import listpost from "../components/post-list.vue"
 import post from "../components/post.vue"
 import index from "../Views/index.vue";
-//var app = Vue.extend({});
-//var ro :RouteConfig[] = [ { path:'/', component:VueRouter  }]
 
 const router = new VueRouter({
   mode: "history",
