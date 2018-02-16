@@ -38,12 +38,13 @@ export default class post extends Vue {
 
   created() {
     if (this.dpost == null) {
-      if (this.$route.params["id"] != null) {
+      var param=this.$route.params["id"];
+      if ( param!= null) {
         this.db.bHub
-          .getPosts(this.$route.params["id"], "", 1, 1)
-          .then((r: d.Post[]) => {
-            if (r != null && r.length > 0) {
-              this.dpost = r[0];
+          .getPosts(param, "", 1, 1)
+          .then((res: d.Post[]) => {
+            if (res != null && res.length > 0) {
+              this.dpost = res[0];
             }
           });
       }
