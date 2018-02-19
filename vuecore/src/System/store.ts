@@ -46,9 +46,9 @@ const storeData: storeData = JSON.parse(storage.getItem(storage.C_ENV_KEY));
 export class VueBus extends Vue
 {  
   public onSavePost(func:(p:cl.Post)=>void)
-  {  
-    this.$on("onsavepost", func);
-  }
+  { this.$on("onsavepost", func); }
+  public emitSavePost(p:cl.Post)
+  {this.$emit("onsavepost",p ); }
 }
 //defining state
 export interface State {

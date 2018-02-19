@@ -63,7 +63,7 @@ export default class epost extends Vue {
         this.$emit("onsavepost", this.post);
         //in this case I dont share any global state, didnt modify any state,
         //so I raise event on eventbus - otherwise I would commit mutation
-        this.$store.state.bus.$emit("onsavepost", this.post);
+        this.$store.state.bus.emitSavePost( this.post);
 
         this.initNewData();
         this.showSucc();
