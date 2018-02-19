@@ -19,8 +19,8 @@
                   {{ dpost.Content }}
                   </div>                  
                    <a :href="'/post/'+dpost.ID"> . . . </a>
-                  
-                  <a v-if="!vars.isAuth" @click.prevent="delpost(dpost.ID)" href="#">Delete</a>
+                  <!-- v-if="!vars.isAuth" -->
+                  <a  @click.prevent="delpost(dpost.ID)" href="#">Delete</a>
                  
                 </article>
    </div>

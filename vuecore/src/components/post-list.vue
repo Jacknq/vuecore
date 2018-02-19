@@ -50,7 +50,7 @@ export default class extends Vue {
     this.getData();
 
     //in this case I want to react on some event, not sharing state, so using eventbus
-    this.$store.state.bus.$on("onsavepost", (post: d.Post) => {
+    this.$store.state.bus.onSavePost((post: d.Post) => {
       this.getData();
     });
 

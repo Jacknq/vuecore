@@ -3,6 +3,7 @@ import Vue from "vue";
 import * as moment from "moment";
 import { StorageService } from "./localstorage";
 import * as cl from "../../code/Backend/repo/t4/domain";
+import * as ext from "../ext1";
 import Vuex, { Store } from "vuex";
 Vue.use(Vuex);
 interface Oauth {
@@ -42,22 +43,33 @@ const storage = new StorageService();
 storage.setItemInit(storage.C_ENV_KEY, dstate);
 
 const storeData: storeData = JSON.parse(storage.getItem(storage.C_ENV_KEY));
-
+export class VueBus extends Vue
+{  
+  public onSavePost(func:(p:cl.Post)=>void)
+  {  
+    this.$on("onsavepost", func);
+  }
+}
 //defining state
 export interface State {
-  bus:Vue
+  bus:VueBus
   db: cl.SgnRCloud;
   vars: storeData;
 }
 //you can have multiple slots in state, local state and imported types
-const statee: State = {
-  bus: new Vue(),
-  db: new cl.SgnRCloud(dstate.servurl, storeData.token),
-  vars: storeData
-};
+// const statee: State = {
+//   bus: new VueBus(store),
+//   db: new cl.SgnRCloud(dstate.servurl, storeData.token),
+//   vars: storeData
+// };
+
 //creating typed vuex
 let store = new Vuex.Store<State>({
-  state: statee,
+  state: {
+    bus: new VueBus(),
+    db: new cl.SgnRCloud(dstate.servurl, storeData.token),
+    vars: storeData
+  } as State,
   mutations: {
     setvars(state, s: storeData) {
       state.vars = s;
