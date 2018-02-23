@@ -1,4 +1,4 @@
-# Vuecore
+# VueCore
 
 All in Vue2+ js Typescript template bootstrap 4, hot reload, Vuex, .net core backend signalr webapi litedb..
 T4 template in source hubsfloww.tt in visual studio community, on click genarate proxy out of csharp model out of the box!
