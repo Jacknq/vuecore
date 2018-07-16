@@ -53,7 +53,7 @@ export class VueBus extends Vue
 //defining state
 export interface State {
   bus:VueBus
-  db: cl.SgnRCloud;
+  db: cl.Api;
   vars: storeData;
 }
 //you can have multiple slots in state, local state and imported types
@@ -67,7 +67,7 @@ export interface State {
 let store = new Vuex.Store<State>({
   state: {
     bus: new VueBus(),
-    db: new cl.SgnRCloud(dstate.servurl, storeData.token),
+    db: new cl.Api(dstate.servurl, storeData.token),
     vars: storeData
   } as State,
   mutations: {
@@ -75,7 +75,7 @@ let store = new Vuex.Store<State>({
       state.vars = s;
       storage.setItem(storage.C_ENV_KEY, s);//update local storage
     },
-    setdb(state, s: cl.SgnRCloud) {
+    setdb(state, s: cl.Api) {
       state.db = s;
     }
   }

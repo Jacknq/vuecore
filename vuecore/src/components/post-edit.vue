@@ -32,6 +32,7 @@
  <div class="form-group">
     <div class="offset-8">
     <button type="submit" @click.stop='save' class="btn btn-primary">Save</button>
+
     </div>
        
      
@@ -44,9 +45,7 @@ import { Component, Vue, Prop, Watch, d } from "../ext1";
 import DateTime from "typescript-dotnet-commonjs/System/Time/DateTime";
 // var multiselect = require('vue-multiselect').default;
 
-@Component({
-  // components: { multiselect: multiselect }
-})
+@Component
 export default class epost extends Vue {
   name = "editpost";
   mode = "insert";
@@ -70,6 +69,7 @@ export default class epost extends Vue {
       });
     }
   }
+
   initNewData() {
     this.post = new d.Post();
     this.post.DateCreated = DateTime.now.toJsDate();

@@ -13,18 +13,10 @@ namespace bvue.code.Backend
             this.maper = BsonMapper.Global;
 
             maper.Entity<Post>()
-            .Id(p=>p.ID).Index(x => x.Title)
-            .Index(x => x.Content);
-        
-            //dbpost
-     
+            .Id(p=>p.ID);
 
             maper.Entity<User>()
-            .Index(x => x.UserName)
-            .Index(x => x.Email)
             .DbRef(x => x.Roles, "role");
-      
-
         }
     }
 }

@@ -5,40 +5,25 @@ using System.Collections.Generic;
 using System.Text;
 using bvue.code.Backend;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Mvc;
+
+using System.Linq;
+using System.Net;
+using System.Web.Http;
 
 namespace bVue.code
 {
     public class DbManager
     {
         public static LiteRepo Instance =  new LiteRepo(); //{ get; private set; }
-        // static DbManager()
-        // {
-        //     Instance = new LiteRepo();
-        // }
+  
     }
-    public class bHub : Hub
+
+    public class bHub : Controller//Hub
     {
         public  LiteRepo repo { get { return DbManager.Instance; } }
        
        
-        public override Task OnConnected()
-        {
-            // Set connection id for just connected client only
-             var auth =GetAuthInfo();
-            return Clients.Client(Context.ConnectionId).SetConnectionId(Context.ConnectionId);
-        
-            //this.OnDisconnected
-        }
-
-        public override Task OnDisconnected(bool stopCalled)
-        {
-            
-            var d = base.OnDisconnected(stopCalled);
-            this.Dispose();
-            return d;
-        }
-
-
         public async Task<List<Post>> GetPosts(string search, string orderby, int page, int pagesize)
         {
            // int c = 0;
@@ -66,12 +51,16 @@ namespace bVue.code
            return  isNumber.IsMatch(s);
         }
 
-        public int InsertPost(Post p)
+        [HttpPost]
+        public int InsertPost([FromBody] Post p)
         {
            // return await Task.Run(() => {
                 return repo.Insert<Post>(p);
           //  });
+        
         }
+        
+        [HttpPost]
         public async Task<bool>  UpdatePost(Post p)
         {
             return await repo.Update<Post>(p);
@@ -83,20 +72,20 @@ namespace bVue.code
      
 
 
-        public string ReturnSome()
-        {
-            return  "abcd";
-        }
-        protected object GetAuthInfo()
-        {
-            var user = Context.User;
-            return new
-            {
-                IsAuthenticated = user.Identity.IsAuthenticated,
-                IsAdmin = user.IsInRole("Admin"),
-                UserName = user.Identity.Name
-            };
-        }
+        // public string ReturnSome()
+        // {
+        //     return  "abcd";
+        // }
+        // protected object GetAuthInfo()
+        // {
+        //     var user = Context.User;
+        //     return new
+        //     {
+        //         IsAuthenticated = user.Identity.IsAuthenticated,
+        //         IsAdmin = user.IsInRole("Admin"),
+        //         UserName = user.Identity.Name
+        //     };
+        // }
     } 
    
 }

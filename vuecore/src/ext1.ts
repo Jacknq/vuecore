@@ -18,15 +18,15 @@ import { Store } from "vuex";
 
 export class Vue extends b.Vue {
   $v: any;
-  $store = store;
+  $store = store;//controversial but working
   
   
   get db() {
     return this.$store.state.db;
   }
-  get connected() {
-    return this.$store.state.db.connected;
-  }
+  // get connected() { //signalr version
+  //   return this.$store.state.db.connected;
+  // }
   get vars() {
     return this.$store.state.vars;
   }
@@ -44,7 +44,7 @@ export class Vue extends b.Vue {
   setvars(vars: storeData): void {
     this.$store.commit("setvars", vars);
   }
-  setdb(db: d.SgnRCloud): void {
+  setdb(db: d.Api): void {
     this.$store.commit("setdb", db);
   }
 }
