@@ -54,7 +54,6 @@ namespace WebApplication2Vue
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
-
             // if (env.IsDevelopment())
             // {
             //     app.UseDeveloperExceptionPage();
@@ -75,7 +74,6 @@ namespace WebApplication2Vue
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
 
-            //  }
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
@@ -110,17 +108,12 @@ namespace WebApplication2Vue
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddAuthentication(); //for isuing tokens
-
-            //  services.AddNodeServices();
             services.AddMvc(option => option.EnableEndpointRouting = false)
             .AddJsonOptions(o =>
             {
                 o.JsonSerializerOptions.PropertyNamingPolicy = null;
                 o.JsonSerializerOptions.DictionaryKeyPolicy = null;
             });
-            //.AddJsonOptions(options => options.SerializerSettings.ContractResolver =
-            //new DefaultContractResolver());
-            // new Newtonsoft.Json.Serialization.DefaultContractResolver());
             services.AddMvcCore().AddApiExplorer();
             services.AddCors();
             // services.Configure<AuthorizationOptions>(options =>
