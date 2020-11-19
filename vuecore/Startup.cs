@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http.Authentication;
+//using Microsoft.AspNetCore.Http.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
@@ -25,7 +25,7 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 //using bVue.code.Providers;
 
 using System.Reflection;
-using Microsoft.AspNetCore.Owin;
+//using Microsoft.AspNetCore.Owin;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using NLog.Web;
@@ -37,63 +37,36 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.FileProviders;
 using bVue.code.controllers;
 using bVue.code;
-using Microsoft.AspNetCore.SpaServices.Webpack;
+//using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.AspNetCore;
 using System.Web;
-using System.Web.Http;
+//using System.Web.Http;
 //using System.Web.Routing;
+using Microsoft.Extensions.Hosting;
+
 
 namespace WebApplication2Vue
 {
     public partial class Startup
     {
         public static IConfigurationRoot config { get; set; }
-        public static void Main(string[] args)
-        {
-
-            // Retrieve the configuration information.
-
-             // Retrieve the configuration information.
-            config = new ConfigurationBuilder()
-               .AddJsonFile("appsettings.json", optional: true)
-               .AddCommandLine(args)
-               .AddEnvironmentVariables(prefix: "ASPNETCORE_")
-               .Build();
-            //j
-            
-            var host = WebHost.CreateDefaultBuilder(args)//new WebHostBuilder()
-                .UseConfiguration(config)
-                .UseKestrel()
-                .UseNLog()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseWebRoot("dist") // use "." to completely remove the wwwroot               
-                .UseIISIntegration()
-                .UseStartup<Startup>()
-                .Build();
-
-            RunSomeTasks();
-
-            Log.Debug("caaling host run");
-            host.Run();
-
-        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
-             
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                // app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-                // {
-                //     HotModuleReplacement = true
-                // });
-            }
 
-            env.ConfigureNLog("nlog.config");
+            // if (env.IsDevelopment())
+            // {
+            //     app.UseDeveloperExceptionPage();
+            //     // app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+            //     // {
+            //     //     HotModuleReplacement = true
+            //     // });
+            // }
+
+            //    env.ConfigureNLog("nlog.config");
             //add NLog to ASP.NET Core
-            loggerFactory.AddNLog();
+            //  loggerFactory.AddNLog();
 
             app.UseStatusCodePagesWithReExecute("/");
             app.UseAuthentication();
@@ -106,12 +79,12 @@ namespace WebApplication2Vue
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            app.UseCors(builder =>
-            builder.AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowAnyOrigin().AllowCredentials()
-                );
-          
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials());
+
             // app.UseSimpleTokenProvider(new TokenProviderOptions
             // {
             //     Path = "/token",
@@ -137,13 +110,19 @@ namespace WebApplication2Vue
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddAuthentication(); //for isuing tokens
-                                       
-            services.AddNodeServices();
-            services.AddMvc()
-            .AddJsonOptions(options => options.SerializerSettings.ContractResolver =
-             //new DefaultContractResolver());
-             new Newtonsoft.Json.Serialization.DefaultContractResolver());
+
+            //  services.AddNodeServices();
+            services.AddMvc(option => option.EnableEndpointRouting = false)
+            .AddJsonOptions(o =>
+            {
+                o.JsonSerializerOptions.PropertyNamingPolicy = null;
+                o.JsonSerializerOptions.DictionaryKeyPolicy = null;
+            });
+            //.AddJsonOptions(options => options.SerializerSettings.ContractResolver =
+            //new DefaultContractResolver());
+            // new Newtonsoft.Json.Serialization.DefaultContractResolver());
             services.AddMvcCore().AddApiExplorer();
+            services.AddCors();
             // services.Configure<AuthorizationOptions>(options =>
             // {
             //     options.AddPolicy("IAddComment", policy => policy.RequireClaim("IComment", "true"));

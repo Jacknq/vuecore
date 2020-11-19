@@ -56,7 +56,10 @@ import index from "./Views/index.vue";
 import post from "./components/post.vue";
 //import  store  from './System/store'
 import { Component, Vue } from "./ext1";
-import "bootstrap";
+
+//import 'jquery';
+
+import "bootstrap.native";
 
 @Component({
   components: { index, post }

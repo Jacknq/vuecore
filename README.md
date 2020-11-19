@@ -1,6 +1,6 @@
 # VueCore
 
-All in Vue2+ js Typescript example bootstrap 4, hot reload, Vuex, .NET CORE 2.1 backend  webapi NoSql LiteDB..
+All in Vue2+ js Typescript example bootstrap native 4, hot reload, Vuex, .NET CORE 5 backend  webapi NoSql LiteDB..
 T4 template in VS Code or commandline, on click genarate proxy out of csharp model out of the box!
 runs on ubuntu 16.04!
  Lets rock!
@@ -28,6 +28,7 @@ npm run dev
 --second terminal should start the backend
 dotnet run
 
+dotnet watch run
 
 # deploy with scp to your server
 npm run deploy
@@ -44,3 +45,8 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 #### T4 transforms tt template in .net core
 dotnet t4 trans -f test.tt
+
+#### updating dotnet libs
+dotnet tool uninstall --global dotnet-outdated
+dotnet tool install --global dotnet-outdated-tool
+dotnet outdated
