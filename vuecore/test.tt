@@ -17,7 +17,7 @@
 <#@ output extension=".ts" #>
 <# /* Environment.CurrentDirectory */ #><#
 string assemblyName = "vuecore.dll";
-string assemblyPath = Environment.CurrentDirectory + "\\bin\\Debug\\netcoreapp2.1\\"+assemblyName;
+string assemblyPath = Environment.CurrentDirectory + "\\bin\\Debug\\net5.0\\"+assemblyName;
 //string[] namespaces = new string[]{ "bVue.code.controllers","bVue.code"};
 #><# /*= assemblyPath*/ #><#
 Assembly assembly = Assembly.LoadFrom(assemblyPath);
