@@ -6,12 +6,13 @@
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>vuecore</AssemblyName>  
     <PackageId>vuecore</PackageId>
-    <RuntimeIdentifiers>win7-x64;ubuntu.16.10-x64</RuntimeIdentifiers>
+    <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <ApplicationIcon />
     <OutputTypeEx>exe</OutputTypeEx>
     <StartupObject />
     <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+    <!-- <NoWarn>$(NoWarn);NU1605</NoWarn> -->
   </PropertyGroup>
   <ItemGroup>
     <None Update="dist\**\*;nlog.config;**\*.csproj;appsettings.json;server.js">
@@ -22,8 +23,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    
-    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+  <!-- important one solves package downgrade error NU1605 -->
+    <PackageReference Include="Microsoft.NETCore.Targets" Version="5.0.0" PrivateAssets="all" />
+    <!-- <PackageReference Include="NETStandard.Library" Version="2.0.3" /> -->
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="LiteDB" Version="4.1.4" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
@@ -41,12 +43,13 @@
     <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ApiExplorer" Version="2.2.0" />
     <PackageReference Include="System.Collections" Version="4.3.0" />
-    <PackageReference Include="TextTemplating.Tools" Version="2.2.1-alpha1" />
+    <!-- <PackageReference Include="TextTemplating.Tool" Version="5.0.1.3" /> -->
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.0" PrivateAssets="All" />
-    <DotNetCliToolReference Include="TextTemplating.Tools" Version="2.2.1-alpha1" />
+<Reference Include="$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\TextTemplating.dll">
  
-</ItemGroup>
+   <Private>false</Private>
+  </Reference>
+  </ItemGroup>
 </Project>

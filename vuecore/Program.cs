@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+
 namespace WebApplication2Vue
 {
     public class Program
@@ -52,5 +53,10 @@ namespace WebApplication2Vue
             host.Build().Run();
 
         }
+    }
+    public class Person
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
     }
 }
