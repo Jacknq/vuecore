@@ -1,7 +1,7 @@
 # VueCore
 
 All in Vue2+ js Typescript example bootstrap native 4, hot reload, Vuex, .NET CORE 5 backend  webapi NoSql LiteDB..
-T4 template in VS Code or commandline, on click genarate proxy out of csharp model out of the box!
+
 runs on ubuntu 16.04!
  Lets rock!
  
