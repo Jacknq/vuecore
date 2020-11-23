@@ -1,49 +1,24 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Authentication;
-//using Microsoft.AspNetCore.Http.Authentication;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json.Serialization;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.SignalR;
-using System;
-//using AspNet.Security.OpenIdConnect.Server;
-//using AspNet.Security.OpenIdConnect.Primitives;
-using System.Security.Claims;
-//using AspNet.Security.OpenIdConnect.Extensions;
+using Microsoft.Extensions.DependencyInjection;
+
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 //using AspNet.Security.OAuth.Validation;
-
 //using bVue.code.Providers;
-
-using System.Reflection;
-//using Microsoft.AspNetCore.Owin;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using System.Text;
 using NLog.Web;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using NLog;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.FileProviders;
-using bVue.code.controllers;
-using bVue.code;
-//using Microsoft.AspNetCore.SpaServices.Webpack;
-using Microsoft.AspNetCore;
-using System.Web;
-//using System.Web.Http;
-//using System.Web.Routing;
-using Microsoft.Extensions.Hosting;
-
+using System.Text;
 
 namespace WebApplication2Vue
 {

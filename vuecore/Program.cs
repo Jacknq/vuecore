@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,7 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
+using System.IO;
+using Microsoft.CodeAnalysis;
 
 namespace WebApplication2Vue
 {
@@ -20,14 +20,14 @@ namespace WebApplication2Vue
 
             // Retrieve the configuration information.
 
-             // Retrieve the configuration information.
-           Startup.config = config = new ConfigurationBuilder()
-               .AddJsonFile("appsettings.json", optional: true)
-               .AddCommandLine(args)
-               .AddEnvironmentVariables(prefix: "ASPNETCORE_")
-               .Build();
+            // Retrieve the configuration information.
+            Startup.config = config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: true)
+                .AddCommandLine(args)
+                .AddEnvironmentVariables(prefix: "ASPNETCORE_")
+                .Build();
             //j
-            
+
             var host = Host.CreateDefaultBuilder(args)//new WebHostBuilder()
                 .ConfigureAppConfiguration(builder => builder.AddConfiguration(config))
                 //  .ConfigureLogging((hostingContext, logging) =>
@@ -38,20 +38,25 @@ namespace WebApplication2Vue
                 // })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                   
+
                     webBuilder.UseWebRoot("dist");
-                   // webBuilder.UseIISIntegration();
+                    // webBuilder.UseIISIntegration();
                     webBuilder.UseContentRoot(Directory.GetCurrentDirectory());
                     webBuilder.UseKestrel();
                     //webBuilder.UseNLog();
                     webBuilder.UseStartup<Startup>();
                 });
 
-           // RunSomeTasks();
+            RunSomeTasks();
 
-           // Log.Debug("caaling host run");
+            // Log.Debug("caaling host run");
             host.Build().Run();
 
+        }
+
+        private static void RunSomeTasks()
+        {
+          
         }
     }
     public class Person
