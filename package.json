@@ -10,7 +10,14 @@
     "pub": "dotnet publish -c release -r ubuntu.16.04-x64",
     "dep": "scp -pw password -C -r ./bin/release/netcoreapp1.1/publish/ root@yourip:/var/www",
     "depp": "scp  -C -r ./bin/release/netcoreapp1.1/publish/ root@yourIP:/var/www",
-    "deploy": "npm run build && npm run pub && npm run depp"
+    "deploy": "npm run build && npm run pub && npm run depp",
+    "task-pull": "git pull",
+    "ttask-commit": "git commit -a -m \"$refact\" && git push",
+    "task-committg": "TortoiseGitProc.exe /command:commit /logmsg:\"$refact\"",
+    "ttask-update": "svn update",
+    "tttask-commit": "TortoiseProc.exe /command:commit /path:.",
+    "task-dotnet": "dotnet run",
+    "task-dev": "npm run serve"
   },
   "author": "",
   "license": "ISC",
