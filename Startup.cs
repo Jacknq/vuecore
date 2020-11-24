@@ -19,6 +19,8 @@ using NLog.Extensions.Logging;
 using NLog;
 using Microsoft.AspNetCore.HttpOverrides;
 using System.Text;
+//using TextTemplating.Infrastructure;
+
 
 namespace WebApplication2Vue
 {
@@ -80,6 +82,7 @@ namespace WebApplication2Vue
 
         SymmetricSecurityKey signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("secretKey"));
 
+        public static IServiceProvider DI;
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddAuthentication(); //for isuing tokens
@@ -97,6 +100,7 @@ namespace WebApplication2Vue
             // });
             //NLOG call this in case you need aspnet-user-authtype/aspnet-user-identity
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
         }
 
         public static void RunSomeTasks()

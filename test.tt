@@ -1,18 +1,25 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
-<#@ import namespace="Newtonsoft.Json" #>
+//#@ import namespace="Newtonsoft.Json" #
+<#@ assembly name="vuecore.dll" #>
+
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System" #>
 <#@ import namespace="System.IO" #>
 <#@ import namespace="System.Linq" #>
-<#@ import namespace="Microsoft.AspNetCore.Mvc.ApiExplorer" #>
-<#@ import namespace="System.Reflection" #>
-<#@ import namespace="Microsoft.AspNetCore.Mvc" #>
+<#@ import namespace="Microsoft.AspNetCore.Mvc.ViewFeatures" #>
+
+// @ import namespace="Microsoft.AspNetCore.Mvc.ApiExplorer"
+<#@ @ import namespace="System.Reflection" #>
+//nuget package dll hell resolverhow to import @ import namespace="Microsoft.NETCore.Targets" #
+// #@ import namespace="Microsoft.AspNetCore.Mvc" #
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#@ import namespace="System.Threading.Tasks" #>
-<#@ import namespace="System.Reflection" #>
-<#@ import namespace="System.Runtime" #>
+
+// #@ import namespace="System.Runtime" #
 <#@ import namespace="System.Xml" #>
 <#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="bVue" #>
+
 <#@ Assembly name="EnvDTE" #>
 <#@ output extension=".ts" #>
 <# /* Environment.CurrentDirectory */ #><#
@@ -20,11 +27,17 @@ string assemblyName = "vuecore.dll";
 string assemblyPath = Environment.CurrentDirectory + "\\bin\\Debug\\net5.0\\"+assemblyName;
 //string[] namespaces = new string[]{ "bVue.code.controllers","bVue.code"};
 #><# /*= assemblyPath*/ #><#
+  ProxyDomain pd = new ProxyDomain();
+//Assembly assembly = pd.GetAssembly(assemblyPath);
 Assembly assembly = Assembly.LoadFrom(assemblyPath);
-
+//Assembly assembly = Assembly.GetExecutingAssembly();
+var asms = AppDomain.CurrentDomain.GetAssemblies();
 List<Type> types = new List<Type>();
 //foreach(var s in namespaces){
+foreach(var a in asms)
+{
  types = types.Concat(GetTypesInNamespace(assembly, "")).ToList();
+ }
 //}
 #>
 
@@ -106,6 +119,20 @@ public Type[] GetTypesInNamespace(Assembly assembly, string nameSpace)
     {
         return s.Replace("Controller","", StringComparison.InvariantCultureIgnoreCase);
     }
+    class ProxyDomain : MarshalByRefObject
+{
+    public Assembly GetAssembly(string assemblyPath)
+    {
+        try
+        {
+            return Assembly.LoadFrom(assemblyPath);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException(ex.Message);
+        }
+    }
+}
 
   
 

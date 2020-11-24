@@ -52,3 +52,11 @@ dotnet tool uninstall --global dotnet-outdated
 dotnet tool install --global dotnet-outdated-tool
 
 ```
+
+### other handy commands
+
+dotnet nuget locals all --clear
+
+dotnet tool install TextTemplating.Tool --version 5.0.1.5
+dotnet tool uninstall Texttemplating.Tool 
+dotnet tt trans -f person.tt
