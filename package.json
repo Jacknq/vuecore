@@ -1,0 +1,90 @@
+{
+  "name": "vuecore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pub": "dotnet publish -c release -r ubuntu.16.04-x64",
+    "dep": "scp -pw password -C -r ./bin/release/netcoreapp1.1/publish/ root@yourip:/var/www",
+    "depp": "scp  -C -r ./bin/release/netcoreapp1.1/publish/ root@yourIP:/var/www",
+    "deploy": "npm run build && npm run pub && npm run depp"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap.native": "^3.0.14",
+    "register-service-worker": "^1.7.1",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^8.4.2",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@types/jquery": "^3.5.4",
+    "@vue/cli-plugin-pwa": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/test-utils": "^1.0.3",
+    "bootstrap": "4.0.0-alpha.6",
+    "bootstrap-datepicker": "^1.6.4",
+    "css-loader": "^0.26.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "fetchival": "^0.3.3",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.1.1",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "moment": "^2.29.1",
+    "postcss-selector-parser": "2.2.3",
+    "typescript": "~3.9.3",
+    "typescript-dotnet-commonjs": "^4.11.2",
+    "vue-loader": "^13.3.0",
+    "vue-multiselect": "^2.1.6",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": false,
+    "env": {
+      "node": false
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended",
+      "@vue/typescript/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "rules": {},
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        ],
+        "env": {
+          "jest": true
+        }
+      }
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "-vs-binding": {
+    "BeforeBuild": [
+      "build"
+    ]
+  }
+}
