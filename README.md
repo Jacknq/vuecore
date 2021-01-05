@@ -57,8 +57,9 @@ dotnet tool install --global dotnet-outdated-tool
 ```
 dotnet nuget locals all --clear
 dotnet tool install dotnet-script --version 1.0.1
+dotnet script test.csx
 
-dotnet tool install TextTemplating.Tool --version 5.0.1.5
+dotnet tool install TextTemplating.Tool --version 5.0.1.12
 dotnet tool uninstall Texttemplating.Tool 
 dotnet tt trans -f person.tt
 ```
