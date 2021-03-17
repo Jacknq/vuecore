@@ -58,23 +58,10 @@ namespace WebApplication2Vue
 
         private static void RunSomeTasks()
         {
-       //   testc t = new testc();
-         // t.print();
-         // test tt = new test();
-           // Console.WriteLine(tt.TransformText());
+            //testc t = new testc();
+         
         }
-         static int TransformTemplate(string filePath)
-        {
-            // var engin = new Engine();
-            // var templateContent = File.ReadAllText(filePath);
-            // var result = engin.ProcessT4Template(templateContent);
-            // var host = Program.DI.GetService<ITextTemplatingEngineHost>();
-            // var outputPath = Path.Combine(
-            //     Path.GetDirectoryName(filePath),
-            //     $"{Path.GetFileNameWithoutExtension(filePath)}{host.FileExtension}");
-            // File.WriteAllText(outputPath, result, host.Encoding);
-            return 0;
-        }
+        
     }
     public class Person
     {
