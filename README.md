@@ -2,9 +2,8 @@
 
 All in Vue2+ js Typescript example bootstrap native 4, hot reload, Vuex, .NET CORE 5 backend  webapi NoSql LiteDB..
 
-runs on ubuntu 16.04!
+runs on linux
 
- 
 #### if using any other editor set vuecore folder as root folder for vue
 
 ## Visual Studio integration
