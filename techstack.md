@@ -1,7 +1,8 @@
 <!--
---- Readme.md Snippet without images Start ---
+&lt;--- Readme.md Snippet without images Start ---&gt;
 ## Tech Stack
 Jacknq/vuecore is built on the following main stack:
+
 - [Jest](http://facebook.github.io/jest/) – Javascript Testing Framework
 - [C#](http://csharp.net) – Languages
 - [jQuery](http://jquery.com/) – Javascript UI Libraries
@@ -18,13 +19,17 @@ Jacknq/vuecore is built on the following main stack:
 - [vuex](https://vuex.vuejs.org) – State Management Library
 - [css-loader](https://github.com/webpack-contrib/css-loader) – CSS Pre-processors / Extensions
 - [ASP.NET Core](docs.microsoft.com/en-us/aspnet/core/) – Frameworks (Full Stack)
+- [LangChain](https://github.com/hwchase17/langchain) – Large Language Model Tools
+- [pgvector](https://github.com/pgvector/pgvector/) – Database Tools
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet without images End ---
 
---- Readme.md Snippet with images Start ---
+&lt;--- Readme.md Snippet without images End ---&gt;
+
+&lt;--- Readme.md Snippet with images Start ---&gt;
 ## Tech Stack
 Jacknq/vuecore is built on the following main stack:
+
 - <img width='25' height='25' src='https://img.stackshare.io/service/830/jest.png' alt='Jest'/> [Jest](http://facebook.github.io/jest/) – Javascript Testing Framework
 - <img width='25' height='25' src='https://img.stackshare.io/service/1015/1200px-C_Sharp_wordmark.svg.png' alt='C#'/> [C#](http://csharp.net) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/1021/lxEKmMnB_400x400.jpg' alt='jQuery'/> [jQuery](http://jquery.com/) – Javascript UI Libraries
@@ -41,16 +46,19 @@ Jacknq/vuecore is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/6705/6128107.png' alt='vuex'/> [vuex](https://vuex.vuejs.org) – State Management Library
 - <img width='25' height='25' src='https://img.stackshare.io/service/8074/default_d2b16fd6997fb2e164de645a34f9b8d5a880d999.png' alt='css-loader'/> [css-loader](https://github.com/webpack-contrib/css-loader) – CSS Pre-processors / Extensions
 - <img width='25' height='25' src='https://img.stackshare.io/service/11331/asp.net-core.png' alt='ASP.NET Core'/> [ASP.NET Core](docs.microsoft.com/en-us/aspnet/core/) – Frameworks (Full Stack)
+- <img width='25' height='25' src='https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg' alt='LangChain'/> [LangChain](https://github.com/hwchase17/langchain) – Large Language Model Tools
+- <img width='25' height='25' src='https://img.stackshare.io/service/109221/default_b888cdf5617d936aa6aacf130911906955508639.png' alt='pgvector'/> [pgvector](https://github.com/pgvector/pgvector/) – Database Tools
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet with images End ---
+
+&lt;--- Readme.md Snippet with images End ---&gt;
 -->
 <div align="center">
 
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [Jacknq/vuecore](https://github.com/Jacknq/vuecore)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|37<br/>Tools used|11/09/23 <br/>Report generated|
+|40<br/>Tools used|12/14/23 <br/>Report generated|
 |------|------|
 </div>
 
@@ -152,6 +160,19 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
+## <img src='https://img.stackshare.io/databases.svg'/> Data (1)
+<table><tr>
+  <td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/109221/default_b888cdf5617d936aa6aacf130911906955508639.png' alt='pgvector'>
+  <br>
+  <sub><a href="https://github.com/pgvector/pgvector/">pgvector</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+</tr>
+</table>
+
 ## <img src='https://img.stackshare.io/devops.svg'/> DevOps (6)
 <table><tr>
   <td align='center'>
@@ -205,9 +226,25 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## Other (1)
+## Other (3)
 <table><tr>
   <td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/2270/no-img-open-source.png' alt='HTML'>
+  <br>
+  <sub><a href="http://">HTML</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+<td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg' alt='LangChain'>
+  <br>
+  <sub><a href="https://github.com/hwchase17/langchain">LangChain</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+<td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/3643/Xrtdc94q_400x400.png' alt='Moment.js'>
   <br>
   <sub><a href="http://momentjs.com/">Moment.js</a></sub>
@@ -248,4 +285,4 @@ Full tech stack [here](/techstack.md)
 <br/>
 <div align='center'>
 
-Generated via [Stack File](https://github.com/apps/stack-file)
+Generated via [Stack File](https://github.com/marketplace/stack-file)
